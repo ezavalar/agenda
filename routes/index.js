@@ -27,7 +27,7 @@ router.post("/registrar", async (req, res)=>{
 //Controlador con get que sirve para borrar los datos de la tabla
 router.get("/borrar/:id", async (req,res)=>{
     const { id }= req.params;
-    await Contacto.remove({_id: id});
+    await Contacto.deleteOne({_id: id});
      res.redirect("/");
 });
 
