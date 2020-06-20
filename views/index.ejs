@@ -1,0 +1,70 @@
+<%- include("partials/header") %>
+    <div class="container">
+           <div class="container">
+        <h1>AGENDA TELEFÓNICA</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/registrar" method="post">
+                            <div class="form-group">
+                                <input type="text" name="nombre" placeholder="Nombre(s)" class="form-control" required>
+                                <input type="text" name="apellido" placeholder="Apellidos" class="form-control" required>
+                                <input type="number" name="telefono" placeholder="Ej. 5555555555" class="form-control" required>
+                                <input type="email" name="email" placeholder="Ej. tucorreo@mail.com" class="form-control" required>
+                                <button type="submit" class="btn btn-primary btn-block">
+                                    Agregar
+                                </button>                                 
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+            <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                N°
+                            </th>
+                            <th>
+                                Nombre
+                            </th>
+                            <th>
+                                Apellidos
+                            </th>
+                            <th>
+                                Teléfono
+                            </th>
+                            <th>
+                                Correo
+                            </th>
+                            <th>
+                                Operación
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (var i=0; i<contactos.length; i++) {%>
+                            <tr>
+                                <td><%= i+1%></td>
+                                <td><%= contactos[i].nombre%></td>
+                                <td><%= contactos[i].apellido%></td>
+                                <td><%= contactos[i].telefono%></td>
+                                <td><%= contactos[i].email%></td>
+                                <td>
+                                        <a href="/borrar/<%= contactos[i]._id%>" class="btn btn-danger">Borrar</a>
+                                        <a href="/editar/<%= contactos[i]._id%>" class="btn btn-info">Editar</a>
+                                    </td>
+                            </tr>
+                                
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </div>
+        
+    </div>
+ <%- include("partials/footer") %>
