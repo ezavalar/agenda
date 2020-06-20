@@ -23,7 +23,7 @@ mongoose.connect(uri, options).then(()=>{
 const indexController= require("./routes/index");
 
 //Configuración de los puertos
-app.set("port", process.env.PORT || 8080);
+app.set("port", process.env.PORT || 3000);
 
 //Configuración de la vista
 app.set("view engine","ejs" );
